@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="E:\mywork\springboot"/>
+			<item value="E:\mywork\Servers"/>
+			<item value="E:\mywork\myspringbootweb"/>
+			<item value="E:\mywork\my-spring-boot"/>
+			<item value="E:\mywork\MicroMessage"/>
+			<item value="E:\mywork\JavaTest"/>
+			<item value="E:\mywork\Hello"/>
+			<item value="E:\mywork\Day"/>
+			<item value="E:\mywork\backend"/>
+			<item value="E:\mywork\spring-mvc-study"/>
+			<item value="E:\mywork\ssh"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

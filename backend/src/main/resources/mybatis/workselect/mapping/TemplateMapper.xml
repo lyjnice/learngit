@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanxiu.workselect.dao.TemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.yanxiu.workselect.api.model.Template" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="res_id" property="resId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="key" property="key" jdbcType="VARCHAR" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SELECT
+      id, activity_id, type, name, res_id, `key`, text
+    FROM template
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    <include refid="Base_Column_List" />
+    WHERE id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from template
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yanxiu.workselect.api.model.Template" >
+    insert into template (id, activity_id, type, name, res_id, `key`, text)
+    values (#{id,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{name, jdbcType=VARCHAR},
+            #{resId, jdbcType=BIGINT}, #{key, jdbcType=VARCHAR}, #{text, jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanxiu.workselect.api.model.Template" useGeneratedKeys="true" keyProperty="id">
+    insert into template
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="resId != null" >
+        res_id,
+      </if>
+      <if test="key != null" >
+        `key`,
+      </if>
+      <if test="text != null" >
+        text,
+      </if>
+    </trim>
+    <trim prefix="VALUES (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type, jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name, jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null" >
+        #{resId, jdbcType=BIGINT},
+      </if>
+      <if test="key != null" >
+        #{key, jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        #{text, jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanxiu.workselect.api.model.Template" >
+    update template
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name, jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null" >
+        res_id = #{resId, jdbcType=BIGINT},
+      </if>
+      <if test="key != null" >
+        `key` = #{key, jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        text = #{text, jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanxiu.workselect.api.model.Template" >
+    update template
+    set activity_id = #{activityId,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
+      res_id = #{resId,jdbcType=BIGINT},
+      name = #{name, jdbcType=VARCHAR},
+      `key` = #{key, jdbcType=VARCHAR},
+      text = #{text, jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,8 @@
+com\muke\ssh\action\UserAction.class
+com\muke\ssh\action\ProductAction.class
+com\muke\ssh\domin\Product.class
+com\muke\ssh\dao\ProductDao.class
+com\muke\ssh\dao\UserDao.class
+com\muke\ssh\service\UserService.class
+com\muke\ssh\service\ProductService.class
+com\muke\ssh\domin\User.class

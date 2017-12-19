@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanxiu.workselect.dao.Stage3Mapper" >
+  <resultMap id="BaseResultMap" type="com.yanxiu.workselect.api.model.Stage3" >
+    <id column="stage_id" property="stageId" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="stage_name" property="stageName" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="candidate" property="candidate" jdbcType="INTEGER" />
+    <result column="ranking" property="ranking" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
+    <result column="vote_num_total_anonymous" property="voteNumTotalAnonymous" jdbcType="INTEGER" />
+    <result column="vote_num_every_anonymous" property="voteNumEveryAnonymous" jdbcType="INTEGER" />
+    <result column="vote_num_total_user" property="voteNumTotalUser" jdbcType="INTEGER" />
+    <result column="vote_num_every_user" property="voteNumEveryUser" jdbcType="INTEGER" />
+    <result column="vote_anonymous" property="voteAnonymous" jdbcType="BIT" />
+    <result column="vote_visitor" property="voteVisitor" jdbcType="BIT" />
+    <result column="vote_participant" property="voteParticipant" jdbcType="BIT" />
+    <result column="vote_myself" property="voteMyself" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stage_id, activity_id, stage_name, start_time, end_time, candidate, ranking, score, 
+    vote_num_total_anonymous, vote_num_every_anonymous, vote_num_total_user, vote_num_every_user, 
+    vote_anonymous, vote_visitor, vote_participant, vote_myself
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from stage3
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from stage3
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yanxiu.workselect.api.model.Stage3" >
+    insert into stage3 (stage_id, activity_id, stage_name, 
+      start_time, end_time, candidate, 
+      ranking, score, vote_num_total_anonymous, 
+      vote_num_every_anonymous, vote_num_total_user, 
+      vote_num_every_user, vote_anonymous, vote_visitor, 
+      vote_participant, vote_myself)
+    values (#{stageId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{stageName,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{candidate,jdbcType=INTEGER}, 
+      #{ranking,jdbcType=INTEGER}, #{score,jdbcType=DOUBLE}, #{voteNumTotalAnonymous,jdbcType=INTEGER}, 
+      #{voteNumEveryAnonymous,jdbcType=INTEGER}, #{voteNumTotalUser,jdbcType=INTEGER}, 
+      #{voteNumEveryUser,jdbcType=INTEGER}, #{voteAnonymous,jdbcType=BIT}, #{voteVisitor,jdbcType=BIT}, 
+      #{voteParticipant,jdbcType=BIT}, #{voteMyself,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanxiu.workselect.api.model.Stage3" useGeneratedKeys="true" keyProperty="stageId" >
+    insert into stage3
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stageId != null" >
+        stage_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="stageName != null" >
+        stage_name,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="candidate != null" >
+        candidate,
+      </if>
+      <if test="ranking != null" >
+        ranking,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="voteNumTotalAnonymous != null" >
+        vote_num_total_anonymous,
+      </if>
+      <if test="voteNumEveryAnonymous != null" >
+        vote_num_every_anonymous,
+      </if>
+      <if test="voteNumTotalUser != null" >
+        vote_num_total_user,
+      </if>
+      <if test="voteNumEveryUser != null" >
+        vote_num_every_user,
+      </if>
+      <if test="voteAnonymous != null" >
+        vote_anonymous,
+      </if>
+      <if test="voteVisitor != null" >
+        vote_visitor,
+      </if>
+      <if test="voteParticipant != null" >
+        vote_participant,
+      </if>
+      <if test="voteMyself != null" >
+        vote_myself,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stageId != null" >
+        #{stageId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="stageName != null" >
+        #{stageName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="candidate != null" >
+        #{candidate,jdbcType=INTEGER},
+      </if>
+      <if test="ranking != null" >
+        #{ranking,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="voteNumTotalAnonymous != null" >
+        #{voteNumTotalAnonymous,jdbcType=INTEGER},
+      </if>
+      <if test="voteNumEveryAnonymous != null" >
+        #{voteNumEveryAnonymous,jdbcType=INTEGER},
+      </if>
+      <if test="voteNumTotalUser != null" >
+        #{voteNumTotalUser,jdbcType=INTEGER},
+      </if>
+      <if test="voteNumEveryUser != null" >
+        #{voteNumEveryUser,jdbcType=INTEGER},
+      </if>
+      <if test="voteAnonymous != null" >
+        #{voteAnonymous,jdbcType=BIT},
+      </if>
+      <if test="voteVisitor != null" >
+        #{voteVisitor,jdbcType=BIT},
+      </if>
+      <if test="voteParticipant != null" >
+        #{voteParticipant,jdbcType=BIT},
+      </if>
+      <if test="voteMyself != null" >
+        #{voteMyself,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanxiu.workselect.api.model.Stage3" >
+    update stage3
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="stageName != null" >
+        stage_name = #{stageName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="candidate != null" >
+        candidate = #{candidate,jdbcType=INTEGER},
+      </if>
+      <if test="ranking != null" >
+        ranking = #{ranking,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="voteNumTotalAnonymous != null" >
+        vote_num_total_anonymous = #{voteNumTotalAnonymous,jdbcType=INTEGER},
+      </if>
+      <if test="voteNumEveryAnonymous != null" >
+        vote_num_every_anonymous = #{voteNumEveryAnonymous,jdbcType=INTEGER},
+      </if>
+      <if test="voteNumTotalUser != null" >
+        vote_num_total_user = #{voteNumTotalUser,jdbcType=INTEGER},
+      </if>
+      <if test="voteNumEveryUser != null" >
+        vote_num_every_user = #{voteNumEveryUser,jdbcType=INTEGER},
+      </if>
+      <if test="voteAnonymous != null" >
+        vote_anonymous = #{voteAnonymous,jdbcType=BIT},
+      </if>
+      <if test="voteVisitor != null" >
+        vote_visitor = #{voteVisitor,jdbcType=BIT},
+      </if>
+      <if test="voteParticipant != null" >
+        vote_participant = #{voteParticipant,jdbcType=BIT},
+      </if>
+      <if test="voteMyself != null" >
+        vote_myself = #{voteMyself,jdbcType=BIT},
+      </if>
+    </set>
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanxiu.workselect.api.model.Stage3" >
+    update stage3
+    set activity_id = #{activityId,jdbcType=BIGINT},
+      stage_name = #{stageName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      candidate = #{candidate,jdbcType=INTEGER},
+      ranking = #{ranking,jdbcType=INTEGER},
+      score = #{score,jdbcType=DOUBLE},
+      vote_num_total_anonymous = #{voteNumTotalAnonymous,jdbcType=INTEGER},
+      vote_num_every_anonymous = #{voteNumEveryAnonymous,jdbcType=INTEGER},
+      vote_num_total_user = #{voteNumTotalUser,jdbcType=INTEGER},
+      vote_num_every_user = #{voteNumEveryUser,jdbcType=INTEGER},
+      vote_anonymous = #{voteAnonymous,jdbcType=BIT},
+      vote_visitor = #{voteVisitor,jdbcType=BIT},
+      vote_participant = #{voteParticipant,jdbcType=BIT},
+      vote_myself = #{voteMyself,jdbcType=BIT}
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </update>
+</mapper>

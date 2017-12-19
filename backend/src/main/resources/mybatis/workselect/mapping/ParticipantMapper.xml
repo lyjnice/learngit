@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanxiu.workselect.dao.ParticipantMapper" >
+  <resultMap id="BaseResultMap" type="com.yanxiu.workselect.api.model.Participant" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <id column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_mobile" property="userMobile" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="xueke_id" property="xuekeId" jdbcType="INTEGER" />
+    <result column="xueduan_id" property="xueduanId" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="project_id" property="projectId" jdbcType="BIGINT" />
+    <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+    <result column="work_num" property="workNum" jdbcType="INTEGER" />
+    <result column="role" property="role" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SELECT user_id, activity_id, user_name, user_mobile, user_email, xueke_id, xueduan_id, grade_id,
+      school_id, area_id, project_id, user_address, work_num, role, title, create_time, update_time
+    from participant
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.yanxiu.workselect.api.model.ParticipantKey" >
+    <include refid="Base_Column_List" />
+    where user_id = #{userId,jdbcType=BIGINT}
+    and activity_id = #{activityId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.yanxiu.workselect.api.model.ParticipantKey" >
+    delete from participant
+    where user_id = #{userId,jdbcType=BIGINT}
+          and activity_id = #{activityId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yanxiu.workselect.api.model.Participant" >
+    insert into participant (user_id, activity_id, user_name,
+                             user_mobile, user_email, xueke_id,
+                             xueduan_id, grade_id, school_id,
+                             area_id, project_id, user_address, work_num,
+                             role, title, create_time,
+                             update_time)
+    values (#{userId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR},
+                                       #{userMobile,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{xuekeId,jdbcType=INTEGER},
+                                       #{xueduanId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{schoolId,jdbcType=INTEGER},
+                                       #{areaId,jdbcType=BIGINT}, #{projectId,jdbcType=BIGINT}, #{userAddress,jdbcType=VARCHAR}, #{workNum,jdbcType=INTEGER},
+            #{role,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+            #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanxiu.workselect.api.model.Participant" >
+    insert into participant
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userMobile != null" >
+        user_mobile,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="xuekeId != null" >
+        xueke_id,
+      </if>
+      <if test="xueduanId != null" >
+        xueduan_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="userAddress != null" >
+        user_address,
+      </if>
+      <if test="workNum != null" >
+        work_num,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="xuekeId != null" >
+        #{xuekeId,jdbcType=INTEGER},
+      </if>
+      <if test="xueduanId != null" >
+        #{xueduanId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="userAddress != null" >
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workNum != null" >
+        #{workNum,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanxiu.workselect.api.model.Participant" >
+    update participant
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        user_mobile = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="xuekeId != null" >
+        xueke_id = #{xuekeId,jdbcType=INTEGER},
+      </if>
+      <if test="xueduanId != null" >
+        xueduan_id = #{xueduanId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="userAddress != null" >
+        user_address = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workNum != null" >
+        work_num = #{workNum,jdbcType=INTEGER},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+    and activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanxiu.workselect.api.model.Participant" >
+    update participant
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_mobile = #{userMobile,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      xueke_id = #{xuekeId,jdbcType=INTEGER},
+      xueduan_id = #{xueduanId,jdbcType=INTEGER},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      area_id = #{areaId,jdbcType=BIGINT},
+      project_id = #{projectId,jdbcType=BIGINT},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      work_num = #{workNum,jdbcType=INTEGER},
+      role = #{role,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+          and activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 指定映射文件 -->
+    <mappers>
+        <mapper resource="mybatis/workselect/mapping/ActivityMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/ParticipantMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/ScoresMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/Stage1Mapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/Stage2Mapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/Stage3Mapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/Stage4Mapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/Stage5Mapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/Stage6Mapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/WorksMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/VoteRecordMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/AwardsMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/CategoryMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/ResourceTypeMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/NavigationMapper.xml"/>
+        <mapper resource="mybatis/workselect/mapping/TemplateMapper.xml"/>
+    </mappers>
+</configuration>

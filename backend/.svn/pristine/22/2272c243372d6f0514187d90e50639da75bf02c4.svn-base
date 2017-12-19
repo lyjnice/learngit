@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanxiu.workselect.dao.ScoresMapper" >
+  <resultMap id="BaseResultMap" type="com.yanxiu.workselect.api.model.Scores" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="work_id" property="workId" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="expert_id" property="expertId" jdbcType="BIGINT" />
+    <result column="expert_score" property="expertScore" jdbcType="DOUBLE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, work_id, activity_id, expert_id, expert_score, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from scores
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from scores
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yanxiu.workselect.api.model.Scores" >
+    insert into scores (id, work_id, activity_id, 
+      expert_id, expert_score, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{workId,jdbcType=VARCHAR}, #{activityId,jdbcType=BIGINT}, 
+      #{expertId,jdbcType=BIGINT}, #{expertScore,jdbcType=DOUBLE}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanxiu.workselect.api.model.Scores" >
+    insert into scores
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="expertId != null" >
+        expert_id,
+      </if>
+      <if test="expertScore != null" >
+        expert_score,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="workId != null" >
+        #{workId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="expertId != null" >
+        #{expertId,jdbcType=BIGINT},
+      </if>
+      <if test="expertScore != null" >
+        #{expertScore,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanxiu.workselect.api.model.Scores" >
+    update scores
+    <set >
+      <if test="workId != null" >
+        work_id = #{workId,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="expertId != null" >
+        expert_id = #{expertId,jdbcType=BIGINT},
+      </if>
+      <if test="expertScore != null" >
+        expert_score = #{expertScore,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanxiu.workselect.api.model.Scores" >
+    update scores
+    set work_id = #{workId,jdbcType=VARCHAR},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      expert_id = #{expertId,jdbcType=BIGINT},
+      expert_score = #{expertScore,jdbcType=DOUBLE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+    <typeAliases>
+        <typeAlias alias="loginRecord" type="com.yanxiu.ucenter.userdata.model.LoginRecord"/>
+        <typeAlias alias="userToken" type="com.yanxiu.ucenter.userdata.model.UserToken"/>
+        <typeAlias alias="productApp" type="com.yanxiu.ucenter.userdata.model.ProductApp"/>
+        <typeAlias alias="user" type="com.yanxiu.ucenter.userdata.model.User"/>
+        <typeAlias alias="user_info" type="com.yanxiu.ucenter.userdata.model.UserInfo"/>
+    </typeAliases>
+    -->
+
+	<!-- <plugins>
+		<plugin interceptor="com.yanxiu.user.interceptor.MybatisSqlInterceptor"></plugin>
+	</plugins> -->
+
+    <!-- 指定映射文件 -->
+    <mappers>
+        <mapper resource="mybatis/passport/mapping/PPUserInfoMapper.xml"/>
+        <mapper resource="mybatis/passport/mapping/PPUserMapper.xml"/>
+    </mappers>
+</configuration>

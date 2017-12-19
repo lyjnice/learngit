@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanxiu.workselect.dao.Stage1Mapper" >
+  <resultMap id="BaseResultMap" type="com.yanxiu.workselect.api.model.Stage1" >
+    <id column="stage_id" property="stageId" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="stage_name" property="stageName" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="user_name" property="userName" jdbcType="BIT" />
+    <result column="user_mobile" property="userMobile" jdbcType="BIT" />
+    <result column="user_email" property="userEmail" jdbcType="BIT" />
+    <result column="user_area" property="userArea" jdbcType="BIT" />
+    <result column="user_school" property="userSchool" jdbcType="BIT" />
+    <result column="user_xueduan" property="userXueduan" jdbcType="BIT" />
+    <result column="user_xueke" property="userXueke" jdbcType="BIT" />
+    <result column="user_role" property="userRole" jdbcType="BIT" />
+    <result column="user_gender" property="userGender" jdbcType="BIT" />
+    <result column="user_address" property="userAddress" jdbcType="BIT" />
+    <result column="user_res1" property="userRes1" jdbcType="BIT" />
+    <result column="user_res2" property="userRes2" jdbcType="BIT" />
+    <result column="user_res3" property="userRes3" jdbcType="BIT" />
+    <result column="user_res4" property="userRes4" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stage_id, activity_id, stage_name, start_time, end_time, user_name, user_mobile, 
+    user_email, user_area, user_school, user_xueduan, user_xueke, user_role, user_gender, 
+    user_address, user_res1, user_res2, user_res3, user_res4
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from stage1
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from stage1
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yanxiu.workselect.api.model.Stage1" >
+    insert into stage1 (stage_id, activity_id, stage_name, 
+      start_time, end_time, user_name, 
+      user_mobile, user_email, user_area, 
+      user_school, user_xueduan, user_xueke, 
+      user_role, user_gender, user_address, 
+      user_res1, user_res2, user_res3, user_res4
+      )
+    values (#{stageId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{stageName,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{userName,jdbcType=BIT}, 
+      #{userMobile,jdbcType=BIT}, #{userEmail,jdbcType=BIT}, #{userArea,jdbcType=BIT}, 
+      #{userSchool,jdbcType=BIT}, #{userXueduan,jdbcType=BIT}, #{userXueke,jdbcType=BIT}, 
+      #{userRole,jdbcType=BIT}, #{userGender,jdbcType=BIT}, #{userAddress,jdbcType=BIT}, 
+      #{userRes1,jdbcType=BIT}, #{userRes2,jdbcType=BIT}, #{userRes3,jdbcType=BIT}, #{userRes4,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yanxiu.workselect.api.model.Stage1" useGeneratedKeys="true" keyProperty="stageId" >
+    insert into stage1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stageId != null" >
+        stage_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="stageName != null" >
+        stage_name,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userMobile != null" >
+        user_mobile,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="userArea != null" >
+        user_area,
+      </if>
+      <if test="userSchool != null" >
+        user_school,
+      </if>
+      <if test="userXueduan != null" >
+        user_xueduan,
+      </if>
+      <if test="userXueke != null" >
+        user_xueke,
+      </if>
+      <if test="userRole != null" >
+        user_role,
+      </if>
+      <if test="userGender != null" >
+        user_gender,
+      </if>
+      <if test="userAddress != null" >
+        user_address,
+      </if>
+      <if test="userRes1 != null" >
+        user_res1,
+      </if>
+      <if test="userRes2 != null" >
+        user_res2,
+      </if>
+      <if test="userRes3 != null" >
+        user_res3,
+      </if>
+      <if test="userRes4 != null" >
+        user_res4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stageId != null" >
+        #{stageId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="stageName != null" >
+        #{stageName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=BIT},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=BIT},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=BIT},
+      </if>
+      <if test="userArea != null" >
+        #{userArea,jdbcType=BIT},
+      </if>
+      <if test="userSchool != null" >
+        #{userSchool,jdbcType=BIT},
+      </if>
+      <if test="userXueduan != null" >
+        #{userXueduan,jdbcType=BIT},
+      </if>
+      <if test="userXueke != null" >
+        #{userXueke,jdbcType=BIT},
+      </if>
+      <if test="userRole != null" >
+        #{userRole,jdbcType=BIT},
+      </if>
+      <if test="userGender != null" >
+        #{userGender,jdbcType=BIT},
+      </if>
+      <if test="userAddress != null" >
+        #{userAddress,jdbcType=BIT},
+      </if>
+      <if test="userRes1 != null" >
+        #{userRes1,jdbcType=BIT},
+      </if>
+      <if test="userRes2 != null" >
+        #{userRes2,jdbcType=BIT},
+      </if>
+      <if test="userRes3 != null" >
+        #{userRes3,jdbcType=BIT},
+      </if>
+      <if test="userRes4 != null" >
+        #{userRes4,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanxiu.workselect.api.model.Stage1" >
+    update stage1
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="stageName != null" >
+        stage_name = #{stageName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=BIT},
+      </if>
+      <if test="userMobile != null" >
+        user_mobile = #{userMobile,jdbcType=BIT},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=BIT},
+      </if>
+      <if test="userArea != null" >
+        user_area = #{userArea,jdbcType=BIT},
+      </if>
+      <if test="userSchool != null" >
+        user_school = #{userSchool,jdbcType=BIT},
+      </if>
+      <if test="userXueduan != null" >
+        user_xueduan = #{userXueduan,jdbcType=BIT},
+      </if>
+      <if test="userXueke != null" >
+        user_xueke = #{userXueke,jdbcType=BIT},
+      </if>
+      <if test="userRole != null" >
+        user_role = #{userRole,jdbcType=BIT},
+      </if>
+      <if test="userGender != null" >
+        user_gender = #{userGender,jdbcType=BIT},
+      </if>
+      <if test="userAddress != null" >
+        user_address = #{userAddress,jdbcType=BIT},
+      </if>
+      <if test="userRes1 != null" >
+        user_res1 = #{userRes1,jdbcType=BIT},
+      </if>
+      <if test="userRes2 != null" >
+        user_res2 = #{userRes2,jdbcType=BIT},
+      </if>
+      <if test="userRes3 != null" >
+        user_res3 = #{userRes3,jdbcType=BIT},
+      </if>
+      <if test="userRes4 != null" >
+        user_res4 = #{userRes4,jdbcType=BIT},
+      </if>
+    </set>
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yanxiu.workselect.api.model.Stage1" >
+    update stage1
+    set activity_id = #{activityId,jdbcType=BIGINT},
+      stage_name = #{stageName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      user_name = #{userName,jdbcType=BIT},
+      user_mobile = #{userMobile,jdbcType=BIT},
+      user_email = #{userEmail,jdbcType=BIT},
+      user_area = #{userArea,jdbcType=BIT},
+      user_school = #{userSchool,jdbcType=BIT},
+      user_xueduan = #{userXueduan,jdbcType=BIT},
+      user_xueke = #{userXueke,jdbcType=BIT},
+      user_role = #{userRole,jdbcType=BIT},
+      user_gender = #{userGender,jdbcType=BIT},
+      user_address = #{userAddress,jdbcType=BIT},
+      user_res1 = #{userRes1,jdbcType=BIT},
+      user_res2 = #{userRes2,jdbcType=BIT},
+      user_res3 = #{userRes3,jdbcType=BIT},
+      user_res4 = #{userRes4,jdbcType=BIT}
+    where stage_id = #{stageId,jdbcType=BIGINT}
+  </update>
+</mapper>

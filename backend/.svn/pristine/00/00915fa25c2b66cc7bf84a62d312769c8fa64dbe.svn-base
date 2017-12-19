@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<substitutionProperty name="log.home" value="/App/log/SRT/workselect/workselect-backend" />
+<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+        <pattern>%-20(%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern>
+    </layout>
+</appender>
+<appender name="A1"
+          class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${log.home}/workselect-backend.log</File>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>
+            ${log.home}/workselect-backend.log.%d{yyyy-MM-dd}
+        </fileNamePattern>
+        <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+        <pattern>%-20(%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern>
+    </layout>
+</appender>
+<root>
+    <level value="INFO" />
+    <appender-ref ref="A1" />
+    <appender-ref ref="stdout" />
+</root>
+</configuration>
